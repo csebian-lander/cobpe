@@ -1,12 +1,17 @@
-var express 	= require("express"),
-		router 		= express.Router(),
-		passport 	= require("passport"),
-		User 			= require("../models/user");
+var express 		= require("express"),
+		router 			= express.Router(),
+		passport 		= require("passport"),
+		middleware	= require("../middleware/index"),
+		User 				= require("../models/user");
 
 
-// SHOW REGISTER FORM -- if app is live, this should be commented out
-router.get("/register", function(req, res){
-  res.render("register");
+// SHOW REGISTER FORM
+router.get("/register", middleware.isLoggedIn, function(req, res){
+	if (req.user.username === "Chuck") {
+  	res.render("register");
+	} else {
+		res.redirect("/");
+	}
 });
 
 // HANDLE SIGN UP LOGIC
