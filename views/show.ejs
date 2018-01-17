@@ -1,0 +1,102 @@
+<% include ./partials/head %>
+
+	<div class="ui fluid blue card">
+
+		<div class="content">
+			<div class="right floated">
+				<% if (database[id].gender.toUpperCase() === "MALE") { %>
+					<p><i class="circular inverted blue man icon"></i></p>
+				<% } else if (database[id].gender.toUpperCase() === "FEMALE") { %>
+					<p><i class="circular inverted purple woman icon"></i></p>
+				<% } %>
+				<% if (database[id].captain === "Y" || database[id].captain === "y") { %>
+					<p><i class="circular inverted orange star icon"></i></p>
+				<% } %>
+			</div>
+			<div class="header"><h1><%= database[id].firstName %> <%= database[id].lastName %></h1></div>
+			<div class="meta"><a href="/list/teams#<%= database[id].team %>"><h2>Currently on Team <%= database[id].team %></h2></a></div>
+			<div class="description">
+				<p> <% if(database[id].age && database[id].age > 0) { %>
+							<%= database[id].age %> years old,
+						<% } %>
+						<strong><%= database[id].position %></strong>,
+						<% if (database[id].yearsExperience === "0") { %>
+							first-year
+						<% } else if (database[id].yearsExperience === "1") { %>
+							1 year experience
+						<% } else { %>
+							 <%= database[id].yearsExperience %> years experience
+						<% } %>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+		<div class="ui styled fluid accordion">
+			<div class="title">
+				<i class="info icon"></i>
+				Contact Info
+			</div>
+			<div class="center aligned content">
+				<% if (database[id].homeAddress ) { %>
+					<button class="ui fluid secondary basic button"><i class="home icon"></i> <%= database[id].homeAddress.toUpperCase() %></button><br />
+				<% } %>
+				<% if (database[id].Phone ) { %>
+					<a class="ui fluid blue button"href="tel:4104745931"><i class="call icon"></i> <%= database[id].Phone %></a><br />
+				<% } %>
+				<% if (database[id].emailAddress ) { %>
+					<a class="ui fluid green button" href="mailto:kybard@gmail.com"><i class="mail icon"></i> <%= database[id].emailAddress.toLowerCase() %></a>
+				<% } %>
+			</div>
+			<% if (database[id].ecName ) { %>
+				<div class="title">
+					<i class="warning red icon"></i>
+					Emergency Contact
+				</div>
+				<div class="content">
+					<h3 class="ui dividing header"><%= database[id].ecName.toUpperCase() %>, <span style="text-transform: capitalize;"><%= database[id].ecRel %></span></h3>
+					<a class="ui huge fluid red button" href="tel:4104745931"><i class="call icon"></i> <%= database[id].ecPhone %></a>
+				</div>
+			<% } %>
+			<div class="active title">
+				<i class="plus icon"></i>
+				Add Note
+			</div>
+			<div class="active content">
+				<form class="ui form" action="/player/<%= database[id].ID %>" method="POST">
+					<div class="field">
+						<input class="hidden" type="text" name="noteBallperson" value="<%= database[id].firstName + " " + database[id].lastName %>">
+						<textarea required name="noteNote"></textarea>
+						<button class="ui fluid green bottom attached button" type="submit">Submit</button>
+					</div>
+					
+				</form>
+			</div>
+			<div class="title">
+				<i class="dropdown icon"></i>
+				Read All Notes
+			</div>
+			<div class="content">
+				<div class="ui comments">
+				  <div class="comment">
+						<% if (database[id].notes.length === 0) { %>
+						<p><em>No notes found.</em></p>
+						<% } else { %>
+							<% database[id].notes.forEach(function(note) { %>
+								<div class="content">
+									<a class="author"><%= note.author %></a>
+									<div class="metadata">
+										<span class="date"><%= note.timestamp %></span>
+									</div>
+									<div class="text">
+										<%= note.note %>
+									</div>
+								</div>
+							<% }); %>
+						<% } %>
+					</div>
+				</div>
+			</div>
+	</div>
+
+<% include ./partials/foot %>
