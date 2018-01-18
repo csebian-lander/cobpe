@@ -59,7 +59,7 @@ app.use(methodOverride("_method"));
 
 // MONGOOSE AND PASSPORT CONFIG
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/citi_open", {useMongoClient: true});
+mongoose.connect("mongodb://chuck:tangabutts@ds261917.mlab.com:61917/cobpe", {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
