@@ -58,8 +58,14 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
 // MONGOOSE AND PASSPORT CONFIG
+process.on('unhandledRejection', error => {
+  // Will print "unhandledRejection err is not defined"
+  console.log('unhandledRejection', error.message);
+});
+
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://chuck:tangabutts@ds261917.mlab.com:61917/cobpe", {useMongoClient: true});
+// mongoose.connect("mongodb://localhost/cobpe", {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
