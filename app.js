@@ -139,4 +139,6 @@ app.get("/*", function (req, res) {
 	res.render("404");
 });
 
-app.listen(3000, function(){ console.log("Citi Open application server has started"); });
+app.listen(process.env.PORT, process.env.IP, function(){
+	console.log("Citi Open application server has started");
+});
