@@ -1,4 +1,6 @@
 var express         = require("express"),
+		http 						= require('http'),
+		enforce 				= require('express-sslify'),
     app             = express(),
     bodyParser      = require("body-parser"),
     mongoose        = require("mongoose"),
@@ -9,6 +11,7 @@ var express         = require("express"),
 		moment					= require("moment"),
 		middleware			= require("./middleware/index");
 
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // GOOGLE API: DB PULLDOWN
 require('dotenv').config();
