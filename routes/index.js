@@ -25,4 +25,9 @@ router.get("/list/teams", middleware.isLoggedIn, function(req, res) {
 	res.render("list-teams");
 });
 
+// RESET TEAMS ROUTE
+router.get("/reset-teams", middleware.isLoggedIn, function(req, res) {
+	res.render("reset-teams");
+});
+
 module.exports = router;

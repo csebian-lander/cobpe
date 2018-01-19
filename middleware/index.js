@@ -1,3 +1,7 @@
+var google = require('googleapis'),
+		sheetsApi = google.sheets('v4'),
+		googleAuth = require('../g-auth');
+
 var middlewareObj = {};
 
 middlewareObj.isLoggedIn = function(req, res, next){
@@ -56,7 +60,9 @@ middlewareObj.determineTeamCount = function(data) {
 	var teamNumbers = [];
 	
 	data.forEach(function(ballperson) {
-		teamNumbers.push(Number(ballperson.team));
+		if (ballperson.team) {	//sanity check: ignores blank/undefined
+			teamNumbers.push(Number(ballperson.team));	
+		}
 	});
 	
 	var max = 0;

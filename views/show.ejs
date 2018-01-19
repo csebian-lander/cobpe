@@ -14,7 +14,13 @@
 				<% } %>
 			</div>
 			<div class="header"><h1><%= database[id].firstName %> <%= database[id].lastName %></h1></div>
-			<div class="meta"><a href="/list/teams#<%= database[id].team %>"><h2>Currently on Team <%= database[id].team %></h2></a></div>
+			<div class="meta">
+				<% if (database[id].team) { %>
+					<a href="/list/teams#<%= database[id].team %>"><h2>Currently on Team <%= database[id].team %></h2></a>
+				<% } else { %>
+					<h2>No team assigned</h2>
+				<% } %>
+			</div>
 			<div class="description">
 				<p> <% if(database[id].age && database[id].age > 0) { %>
 							<%= database[id].age %> years old,

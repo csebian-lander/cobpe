@@ -11,7 +11,7 @@ var express         = require("express"),
 		moment					= require("moment"),
 		middleware			= require("./middleware/index");
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // GOOGLE API: DB PULLDOWN
 require('dotenv').config();
@@ -142,6 +142,31 @@ app.post("/player/:id", middleware.isLoggedIn, function(req, res) {
 	
 	res.redirect("back");
 })
+
+// REFRESH DB ROUTE
+app.get("/refresh", middleware.isLoggedIn, function(req, res) {
+	googleAuth.authorize()
+    .then((auth) => {
+        sheetsApi.spreadsheets.values.batchGet({
+            auth: auth,
+            spreadsheetId: SPREADSHEET_ID,
+            ranges: ["Biographical!A:O", "Notes!A:D"],
+        }, function (err, response) {
+            if (err) {
+                console.log('The API returned an error: ' + err);
+                return console.log(err);
+            }
+						unparsedData = [response.valueRanges[0].values, response.valueRanges[1].values];
+            parsedData = middleware.parseInitialDatabase(unparsedData);
+            console.log(parsedData[0]);
+						teamCount = middleware.determineTeamCount(parsedData);
+        });
+    })
+    .catch((err) => {
+        console.log('auth error', err);
+    });
+	res.redirect("/");
+});
 
 // 404 ROUTE
 app.get("/*", function (req, res) {
