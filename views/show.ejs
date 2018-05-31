@@ -100,9 +100,13 @@
 									<div class="metadata">
 										<span class="date"><%= note.timestamp %></span>
 									</div>
-                  <% if (note.score > 0) { for (i = 0; i < note.score; i ++) { %>
+                  <% if (note.score > 0) { %>
+                  <div class="metadata"> | Score: 
+                  <% for (i = 0; i < note.score; i ++) { %>
                     <i class="star icon"></i>
-                  <% } } %>
+                  <% } %>
+                  </div>
+                  <% } %>
 									<div class="text">
 										<%= note.note %>
 									</div>

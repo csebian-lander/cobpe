@@ -21,10 +21,9 @@
 }
 
 label {
-    display: inline;
-    width: 30px;
-    height: 20px;
+    display: inline-flex;
     border: solid 2px grey;
+    padding: 2px;
 }
 
 input[type="radio"] {
