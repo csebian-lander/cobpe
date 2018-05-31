@@ -48,10 +48,10 @@
 					<button class="ui fluid secondary basic button"><i class="home icon"></i> <%= database[id].homeAddress.toUpperCase() %></button><br />
 				<% } %>
 				<% if (database[id].Phone ) { %>
-					<a class="ui fluid blue button"href="tel:4104745931"><i class="call icon"></i> <%= database[id].Phone %></a><br />
+					<a class="ui fluid blue button"href="tel:<%= database[id].Phone %>"><i class="call icon"></i> <%= database[id].Phone %></a><br />
 				<% } %>
 				<% if (database[id].emailAddress ) { %>
-					<a class="ui fluid green button" href="mailto:kybard@gmail.com"><i class="mail icon"></i> <%= database[id].emailAddress.toLowerCase() %></a>
+					<a class="ui fluid green button" href="mailto:<%= database[id].emailAddress.toLowerCase() %>"><i class="mail icon"></i> <%= database[id].emailAddress.toLowerCase() %></a>
 				<% } %>
 			</div>
 			<% if (database[id].ecName ) { %>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="content">
 					<h3 class="ui dividing header"><%= database[id].ecName.toUpperCase() %>, <span style="text-transform: capitalize;"><%= database[id].ecRel %></span></h3>
-					<a class="ui huge fluid red button" href="tel:4104745931"><i class="call icon"></i> <%= database[id].ecPhone %></a>
+					<a class="ui huge fluid red button" href="tel:<%= database[id].ecPhone %>"><i class="call icon"></i> <%= database[id].ecPhone %></a>
 				</div>
 			<% } %>
 			<div class="active title">
