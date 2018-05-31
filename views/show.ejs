@@ -100,9 +100,9 @@
 									<div class="metadata">
 										<span class="date"><%= note.timestamp %></span>
 									</div>
-                  <% if (note.score !== 0) {%>
-                  <div class="ui star rating" data-interactive=false data-rating="<%= note.score %>"></div>
-                  <% } %>
+                  <% if (note.score > 0) { for (i = 0; i < note.score; i ++) { %>
+                    <i class="star icon"></i>
+                  <% } } %>
 									<div class="text">
 										<%= note.note %>
 									</div>
