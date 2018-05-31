@@ -107,13 +107,11 @@
 									<a class="author"><%= note.author %></a>
 									<div class="metadata">
 										<span class="date"><%= note.timestamp %></span>
-                    <% if (note.score > 0) { %>
                     <span class="rating"> 
                     <% for (i = 0; i < note.score; i++) { %>
                       <i class="yellow star icon"></i>
                     <% } %>
                     </span>
-                    <% } %>
 									</div>
 									<div class="text">
 										<%= note.note %>
