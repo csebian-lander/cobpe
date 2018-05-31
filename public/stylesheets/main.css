@@ -21,7 +21,7 @@
 }
 
 label {
-    display: inline-flex;
+    display: inline-block;
     border: solid 2px grey;
     padding: 2px;
 }

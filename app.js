@@ -108,14 +108,15 @@ app.post("/player/:id", middleware.isLoggedIn, function(req, res) {
 	var newNote = {
 		range: "Notes",
 		majorDimension: "ROWS",
-		values: [[req.body.noteBallperson, req.user.username, noteDate, req.body.noteNote]],
+		values: [[req.body.noteBallperson, req.user.username, noteDate, req.body.noteNote, req.body.noteScore]],
 	}
 	
 	var newPushNote = {
 		ballperson: newNote.values[0][0],
 		author: newNote.values[0][1],
 		timestamp: newNote.values[0][2],
-		note: newNote.values[0][3]
+		note: newNote.values[0][3],
+    score: newNote.values[0][4]
 	};
 	
 	googleAuth.authorize()
