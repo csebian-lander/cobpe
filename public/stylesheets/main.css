@@ -19,16 +19,3 @@
 .hidden {
 	display: none;
 }
-
-label {
-    display: inline-block;
-    border: solid 2px grey;
-    padding: 2px;
-}
-
-input[type="radio"] {
-    display:none;   
-}
-input[type="radio"]:checked + label {
-    border: solid 2px green;
-}

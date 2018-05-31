@@ -72,13 +72,21 @@
 				<form class="ui form" action="/player/<%= database[id].ID %>" method="POST">
 					<div class="field">
 						<input class="hidden" type="text" name="noteBallperson" value="<%= database[id].firstName + " " + database[id].lastName %>">
-            <input type="radio" id="score0" name="noteScore" value="0" checked><label for="score0">none</label></input>
-            <input type="radio" id="score1" name="noteScore" value="1"><label for="score1">1</label></input>
-            <input type="radio" id="score2" name="noteScore" value="2"><label for="score2">2</label></input>
-            <input type="radio" id="score3" name="noteScore" value="3"><label for="score3">3</label></input>
-            <input type="radio" id="score4" name="noteScore" value="4"><label for="score4">4</label></input>
-            <input type="radio" id="score5" name="noteScore" value="5"><label for="score5">5</label></input>
-						<textarea required name="noteNote"></textarea>
+						<div class="ui selection dropdown">
+              <input name="noteScore" type="hidden">
+              <i class="dropdown icon"></i>
+              <div class="default text" data-value="0">Score</div>
+              <div class="menu">
+                <div class="item" data-value="0">No score</div>
+                <div class="item" data-value="1"><i class="star icon"></i></div>
+                <div class="item" data-value="2"><i class="star icon"></i><i class="star icon"></i></div>
+                <div class="item" data-value="3"><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i></div>
+                <div class="item" data-value="4"><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i></div>
+                <div class="item" data-value="5"><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i></div>
+              </div>
+            </div>
+
+            <textarea required name="noteNote"></textarea>
 						<button class="ui fluid green bottom attached button" type="submit">Submit</button>
 					</div>
 					
