@@ -44,7 +44,7 @@ middlewareObj.parseInitialDatabase = function (data) {
 	initialDatabase.shift(); //removes the header row
 	
 	notes.forEach(function(note) {
-		var newNote = { ballperson: note[0], author: note[1], timestamp: note[2], note: note[3]	};
+		var newNote = { ballperson: note[0], author: note[1], timestamp: note[2], note: note[3], score: note[4]	};
 		
 		initialDatabase.forEach(function(row) {
 			if (newNote.ballperson === (row.firstName + " " + row.lastName)) {

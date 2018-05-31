@@ -66,12 +66,18 @@
 			<% } %>
 			<div class="active title">
 				<i class="plus icon"></i>
-				Add Note
+				Add Note/Score
 			</div>
 			<div class="active content">
 				<form class="ui form" action="/player/<%= database[id].ID %>" method="POST">
 					<div class="field">
 						<input class="hidden" type="text" name="noteBallperson" value="<%= database[id].firstName + " " + database[id].lastName %>">
+            <input type="radio" id="score0" checked><label for="score0">none</label></input>
+            <input type="radio" id="score1"><label for="score1">1</label></input>
+            <input type="radio" id="score2"><label for="score2">2</label></input>
+            <input type="radio" id="score3"><label for="score3">3</label></input>
+            <input type="radio" id="score4"><label for="score4">4</label></input>
+            <input type="radio" id="score5"><label for="score5">5</label></input>
 						<textarea required name="noteNote"></textarea>
 						<button class="ui fluid green bottom attached button" type="submit">Submit</button>
 					</div>
@@ -94,6 +100,9 @@
 									<div class="metadata">
 										<span class="date"><%= note.timestamp %></span>
 									</div>
+                  <% if (note.score !== 0) {%>
+                  <div class="ui star rating" data-interactive=false data-rating="<%= note.score %>"></div>
+                  <% } %>
 									<div class="text">
 										<%= note.note %>
 									</div>
