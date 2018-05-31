@@ -78,11 +78,11 @@
               <div class="default text" data-value="0">Score</div>
               <div class="menu">
                 <div class="item" data-value="0">No score</div>
-                <div class="item" data-value="1"><i class="star icon"></i></div>
-                <div class="item" data-value="2"><i class="star icon"></i><i class="star icon"></i></div>
-                <div class="item" data-value="3"><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i></div>
-                <div class="item" data-value="4"><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i></div>
-                <div class="item" data-value="5"><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i></div>
+                <div class="item" data-value="1"><i class="yellow star icon"></i></div>
+                <div class="item" data-value="2"><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
+                <div class="item" data-value="3"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
+                <div class="item" data-value="4"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
+                <div class="item" data-value="5"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
               </div>
             </div>
 
@@ -109,9 +109,9 @@
 										<span class="date"><%= note.timestamp %></span>
 									</div>
                   <% if (note.score > 0) { %>
-                  <div class="ui label"> 
+                  <div class="ui message"> 
                   <% for (i = 0; i < note.score; i++) { %>
-                    <i class="star icon"></i>
+                    <i class="yellow star icon"></i>
                   <% } %>
                   </div>
                   <% } %>
