@@ -72,12 +72,12 @@
 				<form class="ui form" action="/player/<%= database[id].ID %>" method="POST">
 					<div class="field">
 						<input class="hidden" type="text" name="noteBallperson" value="<%= database[id].firstName + " " + database[id].lastName %>">
-            <input type="radio" id="score0" checked><label for="score0">none</label></input>
-            <input type="radio" id="score1"><label for="score1">1</label></input>
-            <input type="radio" id="score2"><label for="score2">2</label></input>
-            <input type="radio" id="score3"><label for="score3">3</label></input>
-            <input type="radio" id="score4"><label for="score4">4</label></input>
-            <input type="radio" id="score5"><label for="score5">5</label></input>
+            <input type="radio" id="score0" name="score" value="0" checked><label for="score0">none</label></input>
+            <input type="radio" id="score1" name="score" value="1"><label for="score1">1</label></input>
+            <input type="radio" id="score2" name="score" value="2"><label for="score2">2</label></input>
+            <input type="radio" id="score3" name="score" value="3"><label for="score3">3</label></input>
+            <input type="radio" id="score4" name="score" value="4"><label for="score4">4</label></input>
+            <input type="radio" id="score5" name="score" value="5"><label for="score5">5</label></input>
 						<textarea required name="noteNote"></textarea>
 						<button class="ui fluid green bottom attached button" type="submit">Submit</button>
 					</div>
@@ -101,8 +101,8 @@
 										<span class="date"><%= note.timestamp %></span>
 									</div>
                   <% if (note.score > 0) { %>
-                  <div class="metadata"> | Score: 
-                  <% for (i = 0; i < note.score; i ++) { %>
+                  <div class="ui label"> 
+                  <% for (i = 0; i < note.score; i++) { %>
                     <i class="star icon"></i>
                   <% } %>
                   </div>
