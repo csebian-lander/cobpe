@@ -21,7 +21,7 @@ var google = require('googleapis'),
 
 var parsedData = {},
 		teamCount = Number,
-		SPREADSHEET_ID = "1NMpkZ9hYt-pJCbtmZRtkID44J9Dvr47sGI01MH6TePw";
+		SPREADSHEET_ID = "16zZGQ52pmZBLnoGfJ_KTIaWIMufPZCAhZe5gVVDqUDE";
 
 googleAuth.authorize()
     .then((auth) => {
