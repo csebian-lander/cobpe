@@ -35,6 +35,7 @@ middlewareObj.parseInitialDatabase = function (data) {
 			position: row[12],
 			captain: row[13],
 			age: row[14],
+      headshot: row[15],
 			notes: []
 		};
 		initialDatabase.push(newObj);

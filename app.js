@@ -28,7 +28,7 @@ googleAuth.authorize()
         sheetsApi.spreadsheets.values.batchGet({
             auth: auth,
             spreadsheetId: SPREADSHEET_ID,
-            ranges: ["Biographical!A:O", "Notes!A:E"],
+            ranges: ["Biographical!A:P", "Notes!A:E"],
         }, function (err, response) {
             if (err) {
                 console.log('The API returned an error: ' + err);

@@ -39,6 +39,15 @@
 	</div>
 	
 		<div class="ui styled fluid accordion">
+      <% if (database[id].headshot !== "none") { %>
+      <div class="title">
+				<i class="user icon"></i>
+				Headshot
+			</div>
+      <div class="content">
+        <%= database[id].headshot %>
+      </div>
+      <% } %>
 			<div class="title">
 				<i class="info icon"></i>
 				Contact Info
