@@ -13,7 +13,11 @@
 					<p><i class="circular inverted orange star icon"></i></p>
 				<% } %>
 			</div>
-			<div class="header"><h1><%= database[id].firstName %> <%= database[id].lastName %></h1></div>
+			<div class="header"><h1>
+        <% if (database[id].headshot !== "none") { %>
+          <img class="ui avatar image" src="<%= database[id].headshot %>">
+        <% } %>
+        <%= database[id].firstName %> <%= database[id].lastName %></h1></div>
 			<div class="meta">
 				<% if (database[id].team) { %>
 					<a href="/list/teams#<%= database[id].team %>"><h2>Currently on Team <%= database[id].team %></h2></a>
