@@ -4,11 +4,13 @@
 
 		<div class="content">
 			<div class="right floated">
-				<% if (database[id].gender.toUpperCase() === "MALE") { %>
-					<p><i class="circular inverted blue man icon"></i></p>
-				<% } else if (database[id].gender.toUpperCase() === "FEMALE") { %>
-					<p><i class="circular inverted purple woman icon"></i></p>
-				<% } %>
+        <% if (database[id].headshot !== "none") { %>
+				  <% if (database[id].gender.toUpperCase() === "MALE") { %>
+					  <p><i class="circular inverted blue man icon"></i></p>
+				  <% } else if (database[id].gender.toUpperCase() === "FEMALE") { %>
+					  <p><i class="circular inverted purple woman icon"></i></p>
+				  <% } %>
+        <% } %>
 				<% if (database[id].captain === "Y" || database[id].captain === "y") { %>
 					<p><i class="circular inverted orange star icon"></i></p>
 				<% } %>
