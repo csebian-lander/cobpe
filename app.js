@@ -175,11 +175,11 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
 // CHANGE TEAM NUMBER ROUTE
 app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
-  var newTeamNumber = req.body.team;
+  var newTeamNumber = req.body.teamVal;
   var playerRow = 2; // TEMPORARY
   
-  console.log(req.params.id);
-  	
+  console.log(req.params.id + 1);
+    	
 	googleAuth.authorize()
     .then((auth) => {
         sheetsApi.spreadsheets.values.update({
@@ -187,7 +187,7 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
             spreadsheetId: SPREADSHEET_ID,
             range: "Biographical!A" + playerRow,
 						valueInputOption: "USER_ENTERED",
-						resource: { values: [newTeamNumber] }
+						resource: { values: [[newTeamNumber]] }
         }, function (err, response) {
             if (err) {
                 console.log('The API returned an error: ' + err);

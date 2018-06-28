@@ -23,8 +23,8 @@
 			<div class="ui small left labeled right action input">
 				<form action="/player/<%= database[id].ID %>/teamset" method="POST">
           <div class="ui label"><label for="teamVal">Current Team: </label></div>
-          <input type="number" name="teamVal" id="teamValue" value="<%= database[id].team %>">
-          <div class="ui green button"><button><i class="edit icon"></i></button></div>
+          <div class="ui input"><input type="number" name="teamVal" id="teamVal" value="<%= database[id].team %>"></div>
+          <button class="ui green button"><i class="edit icon"></i></button>
         </form>
         <a href="/list/teams#<%= database[id].team %>">(view team)</a>
 			</div>
