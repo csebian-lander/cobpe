@@ -176,7 +176,7 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
 app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
   var newTeamNumber = req.body.team;
-  var playerID = req.params.id.parseInt(); playerID++;
+  var playerID = Number(req.params.id); playerID++;
   var playerRow = 2; // TEMPORARY
   
   console.log(req.body.team);
