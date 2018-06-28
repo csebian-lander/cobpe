@@ -176,8 +176,7 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
 app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
   var newTeamNumber = req.body.team;
-  var playerRow = req.params.id + 1; // player with ID 1 will be in row 2 of the GSheet
-  var teamRange = "A" + playerRow;
+  var playerRow = req.params.id.parseInt + 1; // player with ID 1 will be in row 2 of the GSheet
   
   console.log(teamRange);
   	
@@ -186,7 +185,7 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
         sheetsApi.spreadsheets.values.update({
             auth: auth,
             spreadsheetId: SPREADSHEET_ID,
-            range: teamRange,
+            range: "Biographical!A" + playerRow,
 						valueInputOption: "USER_ENTERED",
 						resource: newTeamNumber
         }, function (err, response) {
