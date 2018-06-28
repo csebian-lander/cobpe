@@ -20,15 +20,16 @@
           <img class="ui avatar image" src="<%= database[id].headshot %>">
         <% } %>
         <%= database[id].firstName %> <%= database[id].lastName %></h2></div>
-			<div class="ui right action left labeled input">
+			<div class="ui input">
 				<form action="/player/<%= database[id].ID %>/teamset" method="POST">
-          <div class="ui small label">Current Team: </div>
+          <div class="ui label">Current Team: </div>
           <input class="ui small input" type="number" name="team" id="team" value="<%= database[id].team %>" maxlength="2" size="2">
-          <button class="ui small green button"><i class="edit icon"></i></button>
+          <button class="ui mini green button"><i class="edit icon"></i></button>
         </form>
         
 			</div>
       <div class="meta"> <a href="/list/teams#<%= database[id].team %>">(view team)</a> </div>
+      
 			<div class="description">
 				<p> <% if(database[id].age && database[id].age > 0) { %>
 							<%= database[id].age %> years old,
