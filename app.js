@@ -176,10 +176,11 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
 app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
   var newTeamNumber = req.body.team;
+  var playerID = req.params.id.parseInt(); playerID++;
   var playerRow = 2; // TEMPORARY
   
   console.log(req.body.team);
-  console.log(req.params.id + 1);
+  console.log(playerID);
     	
 	googleAuth.authorize()
     .then((auth) => {
@@ -201,7 +202,8 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
     });
 	
 	//update local db parsedData with new team value
-  
+  parsedData[(playerID - 2)].team = newTeamNumber;
+    
 	res.redirect("back");
 });
 
