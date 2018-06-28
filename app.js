@@ -176,9 +176,9 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
 app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
   var newTeamNumber = req.body.team;
-  var playerRow = req.params.id.parseInt() + 1; // player with ID 1 will be in row 2 of the GSheet
+  var playerRow = 2; // TEMPORARY
   
-  console.log(playerRow);
+  console.log(req.params.id);
   	
 	googleAuth.authorize()
     .then((auth) => {
@@ -187,7 +187,7 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
             spreadsheetId: SPREADSHEET_ID,
             range: "Biographical!A" + playerRow,
 						valueInputOption: "USER_ENTERED",
-						resource: newTeamNumber
+						resource: { values: [newTeamNumber] }
         }, function (err, response) {
             if (err) {
                 console.log('The API returned an error: ' + err);
