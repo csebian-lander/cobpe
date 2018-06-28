@@ -177,7 +177,6 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
   var newTeamNumber = req.body.team;
   var playerID = Number(req.params.id); playerID++;
-  var playerRow = 2; // TEMPORARY
   
   console.log(req.body.team);
   console.log(playerID);
@@ -187,7 +186,7 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
         sheetsApi.spreadsheets.values.update({
             auth: auth,
             spreadsheetId: SPREADSHEET_ID,
-            range: "Biographical!A" + playerRow,
+            range: "Biographical!A" + playerID,
 						valueInputOption: "USER_ENTERED",
 						resource: { values: [[newTeamNumber]] }
         }, function (err, response) {
@@ -200,9 +199,8 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
     .catch((err) => {
         console.log('auth error', err);
     });
-	
-	//update local db parsedData with new team value
-  parsedData[(playerID - 2)].team = newTeamNumber;
+
+  parsedData[(playerID - 2)].team = newTeamNumber;  //update local db parsedData with new team value
     
 	res.redirect("back");
 });
