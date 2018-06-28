@@ -187,7 +187,6 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
             spreadsheetId: SPREADSHEET_ID,
             range: teamRange,
 						valueInputOption: "USER_ENTERED",
-						insertDataOption: "INSERT_ROWS",
 						resource: newTeamNumber
         }, function (err, response) {
             if (err) {
