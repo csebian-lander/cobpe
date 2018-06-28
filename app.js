@@ -175,9 +175,10 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
 // CHANGE TEAM NUMBER ROUTE
 app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
-  var newTeamNumber = req.body.teamVal;
+  var newTeamNumber = req.body.team;
   var playerRow = 2; // TEMPORARY
   
+  console.log(req.body.team);
   console.log(req.params.id + 1);
     	
 	googleAuth.authorize()
