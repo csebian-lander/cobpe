@@ -176,7 +176,7 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
 app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
   var newTeamNumber = req.body.team;
-  var playerRow = req.params.id.parseInt + 1; // player with ID 1 will be in row 2 of the GSheet
+  var playerRow = req.params.id.parseInt() + 1; // player with ID 1 will be in row 2 of the GSheet
   
   console.log(playerRow);
   	
