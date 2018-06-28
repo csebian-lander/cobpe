@@ -22,8 +22,8 @@
         <%= database[id].firstName %> <%= database[id].lastName %></h2></div>
 			<div class="ui right action left labeled input">
 				<form action="/player/<%= database[id].ID %>/teamset" method="POST">
-          <div class="ui label"><label for="teamVal">Current Team: </label></div>
-          <input class="ui transparent input" type="number" name="team" id="team" value="<%= database[id].team %>" maxlength="2" size="2">
+          <div class="ui label">Current Team: </div>
+          <input class="ui input" type="number" name="team" id="team" value="<%= database[id].team %>" maxlength="2" size="2">
           <button class="ui green button"><i class="edit icon"></i></button>
         </form>
         <br/> <a href="/list/teams#<%= database[id].team %>">(view team)</a>

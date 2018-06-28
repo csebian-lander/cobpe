@@ -19,3 +19,7 @@
 .hidden {
 	display: none;
 }
+
+input#team {
+  width: 2em;
+}
