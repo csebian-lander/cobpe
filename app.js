@@ -175,8 +175,9 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
 // CHANGE TEAM NUMBER ROUTE
 app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
   
-  var newTeamNumber = req.body.teamNumber;
-  var teamRange = "A" + newTeamNumber;
+  var newTeamNumber = req.body.team;
+  var playerRow = req.params.id + 1; // player with ID 1 will be in row 2 of the GSheet
+  var teamRange = "A" + playerRow;
   
   console.log(teamRange);
   	
@@ -199,7 +200,7 @@ app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
         console.log('auth error', err);
     });
 	
-	//update local db with new team value
+	//update local db parsedData with new team value
   
 	res.redirect("back");
 });
