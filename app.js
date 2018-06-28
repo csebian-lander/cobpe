@@ -98,7 +98,10 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/", authRoutes);
 
-// ADD COMMENT ROUTE (here so the gSheets dependencies are in place and so it has quick access to the db)
+
+// GSHEETS ROUTES (here so the gSheets dependencies are in place and so it has quick access to the db)
+
+// ADD COMMENT ROUTE 
 app.post("/player/:id", middleware.isLoggedIn, function(req, res) {
 	var newDate = new Date();
 	console.log (newDate);
@@ -168,6 +171,40 @@ app.get("/refresh", middleware.isLoggedIn, function(req, res) {
     });
 	res.redirect("/");
 });
+
+// CHANGE TEAM NUMBER ROUTE
+app.post("/player/:id/teamset", middleware.isLoggedIn, function(req, res) {
+  
+  var newTeamNumber = req.body.teamNumber;
+  var teamRange = "A" + newTeamNumber;
+  
+  console.log(teamRange);
+  	
+	googleAuth.authorize()
+    .then((auth) => {
+        sheetsApi.spreadsheets.values.update({
+            auth: auth,
+            spreadsheetId: SPREADSHEET_ID,
+            range: teamRange,
+						valueInputOption: "USER_ENTERED",
+						insertDataOption: "INSERT_ROWS",
+						resource: newTeamNumber
+        }, function (err, response) {
+            if (err) {
+                console.log('The API returned an error: ' + err);
+                return console.log(err);
+            }
+        });
+    })
+    .catch((err) => {
+        console.log('auth error', err);
+    });
+	
+	//update local db with new team value
+  
+	res.redirect("back");
+});
+
 
 // 404 ROUTE
 app.get("/*", function (req, res) {

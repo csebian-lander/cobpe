@@ -20,9 +20,13 @@
           <img class="ui avatar image" src="<%= database[id].headshot %>">
         <% } %>
         <%= database[id].firstName %> <%= database[id].lastName %></h2></div>
-			<div class="meta">
-				<% if (database[id].team) { %>
-					<a href="/list/teams#<%= database[id].team %>"><h3>Currently on Team <%= database[id].team %></h3></a>
+			<div class="ui labeled action input">
+				<form class="ui form" action="/player/<%= database[id].ID %>/teamset" method="POST">
+          <div class="ui label"><label for="teamVal">Current Team: </label></div>
+          <input type="number" name="teamVal" id="teamValue" value="<%= database[id].team %>">
+          <div class="ui green button"><button><i class="edit icon"></i></button></div>
+        </form>
+        <a href="/list/teams#<%= database[id].team %>">(view team)</a>
 				<% } else { %>
 					<h3>No team assigned yet</h3>
 				<% } %>
