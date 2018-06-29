@@ -16,8 +16,8 @@ router.get("/register", middleware.isLoggedIn, function(req, res){
 
 // HANDLE SIGN UP LOGIC
 router.post("/register", function(req, res){
-  var newUser = new User({username: req.body.username});
-  User.register(newUser, req.body.password, req.body.captain, function(err, user) {
+  var newUser = new User({username: req.body.username, captain: req.body.captain});
+  User.register(newUser, req.body.password, function(err, user) {
     if (err) {
 			return res.render("register", {"error": err.message + "."});
 		}
