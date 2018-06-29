@@ -119,23 +119,44 @@
 						<% if (database[id].notes.length === 0) { %>
 						<p><em>No notes found.</em></p>
 						<% } else { %>
-							<% database[id].notes.forEach(function(note) { %>
-								<div class="content">
-									<a class="author"><%= note.author %></a>
-									<div class="metadata">
-										<span class="date"><%= note.timestamp %></span>
-                    <span class="rating"> 
-                    <% for (i = 0; i < note.score; i++) { %>
-                      <i class="yellow star icon"></i>
-                    <% } %>
-                    </span>
-									</div>
-									<div class="text">
-										<%= note.note %>
-									</div>
-								</div>
-							<% }); %>
-						<% } %>
+              <% if (currentUser.captain) { %>
+                <% database[id].notes.forEach(function(note) { %>
+                  <% if (currentUser.username === note.author) { %>
+                    <div class="content">
+                      <a class="author"><%= note.author %></a>
+                      <div class="metadata">
+                        <span class="date"><%= note.timestamp %></span>
+                        <span class="rating"> 
+                        <% for (i = 0; i < note.score; i++) { %>
+                          <i class="yellow star icon"></i>
+                        <% } %>
+                        </span>
+                      </div>
+                      <div class="text">
+                        <%= note.note %>
+                      </div>
+                    </div>
+                  <% } %>
+                <% }); %>           
+              <% } else { %>
+                <% database[id].notes.forEach(function(note) { %>
+                  <div class="content">
+                    <a class="author"><%= note.author %></a>
+                    <div class="metadata">
+                      <span class="date"><%= note.timestamp %></span>
+                      <span class="rating"> 
+                      <% for (i = 0; i < note.score; i++) { %>
+                        <i class="yellow star icon"></i>
+                      <% } %>
+                      </span>
+                    </div>
+                    <div class="text">
+                      <%= note.note %>
+                    </div>
+                  </div>
+                <% }); %>
+						  <% } %>
+            <% } %>
 					</div>
 				</div>
 			</div>
