@@ -120,8 +120,10 @@
 						<p><em>No notes found.</em></p>
 						<% } else { %>
               <% if (currentUser.captain) { %>
+                <% var noteCount = 0; %>
                 <% database[id].notes.forEach(function(note) { %>
                   <% if (currentUser.username === note.author) { %>
+                    <% noteCount++; %>
                     <div class="content">
                       <a class="author"><%= note.author %></a>
                       <div class="metadata">
@@ -137,7 +139,10 @@
                       </div>
                     </div>
                   <% } %>
-                <% }); %>           
+                <% }); %> 
+                <% if (noteCount === 0) { %>
+                  <p><em>No notes found.</em></p>
+                <% } %>
               <% } else { %>
                 <% database[id].notes.forEach(function(note) { %>
                   <div class="content">
