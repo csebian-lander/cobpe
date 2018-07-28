@@ -105,7 +105,8 @@ app.use("/", authRoutes);
 app.post("/player/:id", middleware.isLoggedIn, function(req, res) {
 	var newDate = new Date();
 	console.log (newDate);
-	var noteDate = moment(newDate).format('dddd, MMMM D, h:mm a');
+  var estDate = moment(newDate).utcOffset(-240);
+	var noteDate = moment(estDate).format('dddd, MMMM D, h:mm a');
 	console.log(noteDate);
 	
 	var newNote = {
