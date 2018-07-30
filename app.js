@@ -107,12 +107,13 @@ app.post("/player/:id", middleware.isLoggedIn, function(req, res) {
 	console.log (newDate);
   var estDate = moment(newDate).utcOffset(-240);
 	var noteDate = moment(estDate).format('dddd, MMMM D, h:mm a');
+  var scoreInteger = parseInt(req.body.noteScore);
 	console.log(noteDate);
 	
 	var newNote = {
 		range: "Notes",
 		majorDimension: "ROWS",
-		values: [[req.body.noteBallperson, req.user.username, noteDate, req.body.noteNote, req.body.noteScore]],
+		values: [[req.body.noteBallperson, req.user.username, noteDate, req.body.noteNote, scoreInteger]],
 	}
 	
 	var newPushNote = {
