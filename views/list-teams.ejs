@@ -23,6 +23,9 @@
 							<% if (ballperson.captain === "Y" || ballperson.captain === "y") { %>
 								<i class="right floated yellow star icon"></i>
 							<% } %>
+              <% if (ballperson.yearsExperience === "0") { %>
+								<i class="right floated green registered icon"></i>
+							<% } %>
 							<% if (ballperson.gender.toUpperCase() === "MALE") { %>
 								<i class="right floated blue man icon"></i>
 							<% } else if (ballperson.gender.toUpperCase() === "FEMALE") { %>
