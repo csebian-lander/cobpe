@@ -1,14 +1,14 @@
 <% include ./partials/head %>
 
   <div class="ui fluid styled accordion">
-    <div class="title accordionTitle">
+    <div class="title">
         <h2>Select a teammate</h2>
      </div>
      <div class="content accordionContent">
         <% database.forEach(function(ballperson) { %>
           <% if (ballperson.team === database[id].team) { %>
             <a class="ui fluid card" href="/player/<%= ballperson.ID %>">
-              <img class="ui mini avatar image" src="<%= ballperson.headshot %>">
+              <% if (ballperson.headshot !== "none") { %><img class="ui mini avatar image" src="<%= ballperson.headshot %>"><% } %>
               <%= ballperson.firstName %> <%= ballperson.lastName %>
             </a>
           <% } %>
