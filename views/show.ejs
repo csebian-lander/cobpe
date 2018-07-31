@@ -1,17 +1,17 @@
 <% include ./partials/head %>
 
   <div class="ui container">
-    <% if (database[id-1]) { if (database[id-1].team === database[id].team) { %>
+    <% if (database[id-1].team === database[id].team) { %>
       <a href="/player/<%=database[id-1].ID%>" class="ui tiny black basic left labeled icon fluid button"> <i class="left arrow icon"></i> <%= database[id-1].firstName %> <%= database[id-1].lastName %></a>
-    <% } } %>
+    <% } %>
   </div>
 
   <div class="ui hidden divider"></div>
   
   <div class="ui container">
-    <% if (database[id+1]) { if (database[id+1].team === database[id].team) { %>
+    <% if (database[id+1].team === database[id].team) { %>
       <a href="/player/<%=database[id+1].ID%>" class="ui tiny black basic right labeled icon fluid button"> <i class="right arrow icon"></i> <%= database[id+1].firstName %> <%= database[id+1].lastName %></a>
-    <% } } %>
+    <% } %>
   </div>
 
   <div class="ui hidden divider"></div>
