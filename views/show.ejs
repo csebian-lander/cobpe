@@ -1,9 +1,7 @@
 <% include ./partials/head %>
 
   <div class="ui fluid styled accordion">
-    <div class="title">
-      <p>Select a teammate</p>
-     </div>
+    <div class="title">Select a teammate</div>
     <div class="content">
      <div class="ui list">
         <% database.forEach(function(ballperson) { %>
@@ -14,7 +12,7 @@
              <div class="content">
                 <a class="header" href="/player/<%= ballperson.ID %>"><%= ballperson.firstName %> <%= ballperson.lastName %></a>
              </div>
-           </div>
+            </div>
           <% } %>
         <% }) %>
       </div>
