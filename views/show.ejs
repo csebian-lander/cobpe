@@ -4,13 +4,18 @@
     <div class="title">
         <h2>Select a teammate</h2>
      </div>
-     <div class="content accordionContent">
+     <div class="ui list">
         <% database.forEach(function(ballperson) { %>
           <% if (ballperson.team === database[id].team) { %>
-            <a class="ui fluid card" href="/player/<%= ballperson.ID %>">
-              <% if (ballperson.headshot !== "none") { %><img class="ui mini avatar image" src="<%= ballperson.headshot %>"><% } %>
+           <div class="item">
+             <% if (ballperson.headshot !== "none") { %><img class="ui avatar image" src="<%= ballperson.headshot %>">
+             <% } else { %> <i class="user circle icon"></i> <% } %>
+           </div>
+           <div class="content">
+            <a class="header" href="/player/<%= ballperson.ID %>">              
               <%= ballperson.firstName %> <%= ballperson.lastName %>
             </a>
+           </div>
           <% } %>
         <% }) %>
       </div>
