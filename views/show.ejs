@@ -8,7 +8,7 @@
           <% if (ballperson.team === database[id].team) { %>
            <div class="item">
              <% if (ballperson.headshot !== "none") { %><img class="ui avatar image" src="<%= ballperson.headshot %>">
-             <% } else { %> <img class="ui avatar image" src="http://www.citi-assets.kybard.com/headshots/blank-avatar.png" <% } %>
+             <% } else { %> <img class="ui avatar image" src="http://www.citi-assets.kybard.com/headshots/blank-avatar.png"> <% } %>
              <div class="content">
                 <a class="header" href="/player/<%= ballperson.ID %>"><%= ballperson.firstName %> <%= ballperson.lastName %></a>
              </div>
