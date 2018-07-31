@@ -45,7 +45,19 @@
 			</div>
 		</div>
 	</div>
-	
+
+  <% if (database[id-1]) { if (database[id-1].team === database[id].team) { %>
+    <button class="ui tiny primary left labeled icon fluid button"> <i class="left arrow icon"></i> <%= database[id-1].firstName %> <%= database[id-1].lastName %></button>
+  <% } } %>
+
+  <div class="ui fitted hidden divider"></div>
+
+  <% if (database[id+1]) { if (database[id+1].team === database[id].team) { %>
+    <button class="ui tiny primary right labeled icon fluid button"> <i class="right arrow icon"></i> <%= database[id+1].firstName %> <%= database[id+1].lastName %></button>
+  <% } } %>
+
+  <div class="ui hidden divider"></div>
+
 		<div class="ui styled fluid accordion">
       <% if (database[id].headshot !== "none") { %>
       <div class="title">
