@@ -2,7 +2,7 @@
 
   <div class="ui fluid styled accordion">
     <div class="title">
-        <h2>Select a teammate</h2>
+      <p>Select a teammate</p>
      </div>
     <div class="content">
      <div class="ui list">
@@ -10,7 +10,7 @@
           <% if (ballperson.team === database[id].team) { %>
            <div class="item">
              <% if (ballperson.headshot !== "none") { %><img class="ui avatar image" src="<%= ballperson.headshot %>">
-             <% } else { %> <i class="user circle icon"></i> <% } %>
+             <% } else { %> <img class="ui avatar image" src="http://www.citi-assets.kybard.com/headshots/blank-avatar.png" <% } %>
              <div class="content">
                 <a class="header" href="/player/<%= ballperson.ID %>"><%= ballperson.firstName %> <%= ballperson.lastName %></a>
              </div>
