@@ -4,6 +4,7 @@
     <div class="title">
         <h2>Select a teammate</h2>
      </div>
+    <div class="content">
      <div class="ui list">
         <% database.forEach(function(ballperson) { %>
           <% if (ballperson.team === database[id].team) { %>
@@ -12,16 +13,13 @@
              <% } else { %> <i class="user circle icon"></i> <% } %>
            </div>
            <div class="content">
-            <a class="header" href="/player/<%= ballperson.ID %>">              
-              <%= ballperson.firstName %> <%= ballperson.lastName %>
-            </a>
+            <a class="header" href="/player/<%= ballperson.ID %>"><%= ballperson.firstName %> <%= ballperson.lastName %></a>
            </div>
           <% } %>
         <% }) %>
       </div>
+     </div>
   </div>
-
-  <div class="ui hidden divider"></div>
 
 	<div class="ui fluid blue card">
 
