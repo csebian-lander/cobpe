@@ -22,7 +22,7 @@ middlewareObj.parseInitialDatabase = function (data) {
 	bioData.forEach(function(row) {
 		var newObj = {
 			ID: idNum,
-			team: row[0],
+			team: row[0].trim(),
 			firstName: row[1].trim(),
 			lastName: row[2].trim(),
 			gender: row[3],
