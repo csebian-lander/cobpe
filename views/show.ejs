@@ -61,6 +61,11 @@
 							 <%= database[id].yearsExperience %> years experience
 						<% } %>
 				</p>
+        <% if (database[id].averageScore !== -1) { %>
+        <p>
+          <strong>Average score: <%=database[id].averageScore%></strong>
+        </p>
+        <% } %>
 			</div>
 		</div>
 	</div>
