@@ -64,7 +64,7 @@ middlewareObj.parseInitialDatabase = function (data) {
     
     ballperson.notes.forEach(function(note) {
       if (note.score !== "") {
-        var scoreNum = note.score.parseInt();
+        var scoreNum = parseInt(note.score);
         scoreSum = scoreSum + scoreNum;
         scoreCount++;
       }
