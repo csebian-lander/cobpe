@@ -59,17 +59,17 @@ middlewareObj.parseInitialDatabase = function (data) {
 
   //average scores and add to ballperson object
   initialDatabase.forEach(function(ballperson) {
-    var count = 0;
-    var sum = 0;
+    var scoreCount = 0;
+    var scoreSum = 0;
     
     ballperson.notes.forEach(function(note) {
-      if (note.score !== "" && note.score >= 0) {
-        count++;
-        sum = sum + note.score;
+      if (note.score && note.score >= 0 && note.score <= 5) {
+        scoreCount++;
+        scoreSum = scoreSum + note.score;
       }
     });
     
-    if (count > 0) { ballperson.averageScore = (sum / count); }
+    if (scoreCount > 0) { ballperson.averageScore = (scoreSum / scoreCount); }
     else { ballperson.averageScore = -1; }
     
   });
