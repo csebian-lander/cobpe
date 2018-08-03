@@ -60,12 +60,10 @@
 						<% } else { %>
 							 <%= database[id].yearsExperience %> years experience
 						<% } %>
-				</p>
-        <% if (database[id].averageScore !== -1) { %>
-        <p>
-          <strong><i class="star icon"></i> <%=database[id].averageScore.toFixed(2)%></strong>
+            <% if (database[id].averageScore !== -1) { %>
+              | <strong><i class="star icon"></i>&nbsp;<%=database[id].averageScore.toFixed(2)%></strong>
+            <% } %>
         </p>
-        <% } %>
 			</div>
 		</div>
 	</div>
