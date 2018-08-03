@@ -60,7 +60,7 @@
 						<% } else { %>
 							 <%= database[id].yearsExperience %> years experience
 						<% } %>
-            <% if (currentUser.captain && database[id].averageScore !== -1) { %>
+            <% if (!currentUser.captain && database[id].averageScore !== -1) { %>
               | <strong><i class="star icon"></i>&nbsp;<%=database[id].averageScore.toFixed(2)%></strong>
             <% } %>
         </p>
