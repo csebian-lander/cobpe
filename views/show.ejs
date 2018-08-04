@@ -106,34 +106,6 @@
 					<a class="ui huge fluid red button" href="tel:<%= database[id].ecPhone %>"><i class="call icon"></i> <%= database[id].ecPhone %></a>
 				</div>
 			<% } %>
-			<div class="active title">
-				<i class="plus icon"></i>
-				Add Note/Score
-			</div>
-			<div class="active content">
-				<form class="ui form" action="/player/<%= database[id].ID %>" method="POST">
-					<div class="field">
-						<input class="hidden" type="text" name="noteBallperson" value="<%= database[id].firstName + " " + database[id].lastName %>">
-						<div class="ui selection dropdown">
-              <input name="noteScore" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text" data-value="0">Score</div>
-              <div class="menu">
-                <div class="item" data-value="0">No score</div>
-                <div class="item" data-value="1"><i class="yellow star icon"></i></div>
-                <div class="item" data-value="2"><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
-                <div class="item" data-value="3"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
-                <div class="item" data-value="4"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
-                <div class="item" data-value="5"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
-              </div>
-            </div>
-
-            <textarea name="noteNote"></textarea>
-						<button class="ui fluid green bottom attached button" type="submit">Submit</button>
-					</div>
-					
-				</form>
-			</div>
 			<div class="title">
 				<i class="dropdown icon"></i>
 				Read All Notes
@@ -189,6 +161,34 @@
             <% } %>
 					</div>
 				</div>
+			</div>
+      <div class="active title">
+				<i class="plus icon"></i>
+				Add Note/Score
+			</div>
+			<div class="active content">
+				<form class="ui form" action="/player/<%= database[id].ID %>" method="POST">
+					<div class="field">
+						<input class="hidden" type="text" name="noteBallperson" value="<%= database[id].firstName + " " + database[id].lastName %>">
+						<div class="ui selection dropdown">
+              <input name="noteScore" type="hidden">
+              <i class="dropdown icon"></i>
+              <div class="default text" data-value="0">Score</div>
+              <div class="menu">
+                <div class="item" data-value="0">No score</div>
+                <div class="item" data-value="1"><i class="yellow star icon"></i></div>
+                <div class="item" data-value="2"><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
+                <div class="item" data-value="3"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
+                <div class="item" data-value="4"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
+                <div class="item" data-value="5"><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i></div>
+              </div>
+            </div>
+
+            <textarea name="noteNote"></textarea>
+						<button class="ui fluid green bottom attached button" type="submit">Submit</button>
+					</div>
+					
+				</form>
 			</div>
 	</div>
 
