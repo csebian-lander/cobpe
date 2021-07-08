@@ -7,11 +7,11 @@ var express 		= require("express"),
 
 // SHOW REGISTER FORM
 router.get("/register", middleware.isLoggedIn, function(req, res){
-	// if (req.user.username === "Chuck") {
+	if (req.user.username === "Chuck") {
   	res.render("register");
-	// } else {
-		// res.redirect("/");
-	// }
+	} else {
+		res.redirect("/");
+	}
 });
 
 // HANDLE SIGN UP LOGIC
