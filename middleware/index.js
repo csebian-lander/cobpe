@@ -6,10 +6,10 @@ var google = require('googleapis'),
 var middlewareObj = {};
 
 middlewareObj.isLoggedIn = function(req, res, next){
-  if (req.isAuthenticated()) {
+  // if (req.isAuthenticated()) {
     return next();
-  }
-	res.redirect("/login");
+  // }
+	// res.redirect("/login");
 }
 
 middlewareObj.parseInitialDatabase = function (data) {
