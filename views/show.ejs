@@ -81,6 +81,7 @@
         <img class="ui rounded image" src="<%= database[id].headshot %>">
       </div>
       <% } %>
+      <% if (currentUser && currentUser.username !== "guest") { %>
 			<div class="title">
 				<i class="info icon"></i>
 				Contact Info
@@ -190,6 +191,7 @@
 					
 				</form>
 			</div>
+      <% } %>
 	</div>
 
 <% include ./partials/foot %>
