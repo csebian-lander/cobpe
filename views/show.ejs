@@ -41,9 +41,12 @@
         <%= database[id].firstName %> <%= database[id].lastName %></h2></div>
 			<div class="ui input">
 				<form action="/player/<%= database[id].ID %>/teamset" method="POST">
-          <h4 id="teamHeader" class="meta ui left floated header"><a href="/list/teams#<%= database[id].team %>">Current Team:</a> </h4>
+          <h4 id="teamHeader" class="meta ui left floated header"><a href="/list/teams#<%= database[id].team %>">Current Team:<% if (currentUser.username === "guest") { %> <%= database[id].team %> <% } %></a> </h4>
+
+          <% if (currentUser.username !== "guest") { %>
           <input class="ui input" type="number" name="team" id="team" value="<%= database[id].team %>" maxlength="2" size="2">
           <button class="ui mini teal attached right button">Change</button>
+          <% } %>
         </form>
         
 			</div>
