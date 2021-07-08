@@ -67,7 +67,14 @@ process.on('unhandledRejection', error => {
 });
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://chuck:tangabutts@cluster0.ywpal.mongodb.net/cobpe.cobpe_auth?retryWrites=true&w=majority", { useNewUrlParser: true} );
+await mongoose.connect('mongodb://chuck:tangabutts@cluster0.ywpal.mongodb.net/cobpe.cobpe_auth?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});
+
+// mongoose.connect("mongodb://chuck:tangabutts@cluster0.ywpal.mongodb.net/cobpe.cobpe_auth?retryWrites=true&w=majority", { useNewUrlParser: true} );
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
