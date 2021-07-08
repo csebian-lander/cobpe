@@ -67,7 +67,7 @@ process.on('unhandledRejection', error => {
 });
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://chuck:tangabutts@cluster0.ywpal.mongodb.net/cobpe.cobpe_auth?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://chuck:tangabutts@cluster0.ywpal.mongodb.net/cobpe?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
