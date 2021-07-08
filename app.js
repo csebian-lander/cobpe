@@ -36,7 +36,7 @@ googleAuth.authorize()
             }
 						unparsedData = [response.valueRanges[0].values, response.valueRanges[1].values];
             parsedData = middleware.parseInitialDatabase(unparsedData);
-            console.log(parsedData[0]);
+            console.log("Database loaded.");
 						teamCount = middleware.determineTeamCount(parsedData);
         });
     })
