@@ -36,7 +36,7 @@ googleAuth.authorize()
             }
 						unparsedData = [response.valueRanges[0].values, response.valueRanges[1].values];
             parsedData = middleware.parseInitialDatabase(unparsedData);
-            console.log(parsedData[0]);
+            console.log("Database loaded.");
 						teamCount = middleware.determineTeamCount(parsedData);
         });
     })
@@ -67,8 +67,13 @@ process.on('unhandledRejection', error => {
 });
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://chuck:tangabutts@ds261917.mlab.com:61917/cobpe", {useMongoClient: true});
-// mongoose.connect("mongodb://localhost/cobpe", {useMongoClient: true});
+mongoose.connect('mongodb+srv://chuck:tangabutts@cluster0.ywpal.mongodb.net/cobpe?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

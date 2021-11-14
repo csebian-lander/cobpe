@@ -41,9 +41,12 @@
         <%= database[id].firstName %> <%= database[id].lastName %></h2></div>
 			<div class="ui input">
 				<form action="/player/<%= database[id].ID %>/teamset" method="POST">
-          <h4 id="teamHeader" class="meta ui left floated header"><a href="/list/teams#<%= database[id].team %>">Current Team:</a> </h4>
+          <h4 id="teamHeader" class="meta ui left floated header"><a href="/list/teams#<%= database[id].team %>">Current Team:<% if (currentUser.username === "guest") { %> <%= database[id].team %> <% } %></a> </h4>
+
+          <% if (currentUser.username !== "guest") { %>
           <input class="ui input" type="number" name="team" id="team" value="<%= database[id].team %>" maxlength="2" size="2">
           <button class="ui mini teal attached right button">Change</button>
+          <% } %>
         </form>
         
 			</div>
@@ -60,7 +63,7 @@
 						<% } else { %>
 							 <%= database[id].yearsExperience %> years experience
 						<% } %>
-            <% if (!currentUser.captain && database[id].averageScore !== -1) { %>
+            <% if (!currentUser.captain && currentUser.username !== "guest" && database[id].averageScore !== -1) { %>
               | <strong><i class="star icon"></i>&nbsp;<%=database[id].averageScore.toFixed(2)%></strong>
             <% } %>
         </p>
@@ -81,6 +84,7 @@
         <img class="ui rounded image" src="<%= database[id].headshot %>">
       </div>
       <% } %>
+      <% if (currentUser && currentUser.username !== "guest") { %>
 			<div class="title">
 				<i class="info icon"></i>
 				Contact Info
@@ -190,6 +194,7 @@
 					
 				</form>
 			</div>
+      <% } %>
 	</div>
 
 <% include ./partials/foot %>

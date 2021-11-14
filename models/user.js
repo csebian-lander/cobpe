@@ -1,8 +1,13 @@
 var mongoose = require("mongoose"),
     passportLocalMongoose = require("passport-local-mongoose");
 
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/citi_open", {useMongoClient: true});
+// mongoose.Promise = global.Promise;
+// mongoose.connect('mongodb://chuck:tangabutts@cluster0.ywpal.mongodb.net/cobpe', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false,
+//   useCreateIndex: true
+// });
 
 var userSchema = new mongoose.Schema({
   username: String,
